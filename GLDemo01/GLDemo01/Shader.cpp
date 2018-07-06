@@ -1,19 +1,7 @@
 #include "Shader.h"
 
 
-
-Shader::Shader(const char * vertexShaderPath, const char * fragmentShaderPath)
-{
-  // read shader source code from file
-  const char *vertexShaderCode, *fragmentShaderCode;
-  readShaderCodeFromFile(vertexShaderPath, fragmentShaderPath, vertexShaderCode, fragmentShaderCode);
-
-  // create shaders
-  ID = createProgram(vertexShaderCode, fragmentShaderCode);
-}
-
-void readShaderCodeFromFile(const char * vertexShaderPath, const char * fragmentShaderPath,
-                            const char * vShaderCode, const char * fShaderCode)
+std::pair<std::string, std::string> readShaderCodeFromFile(const char * vertexShaderPath, const char * fragmentShaderPath)
 {
   std::string vertexSource, fragmentSource;
   std::ifstream vShaderFile, fShaderFile;
@@ -39,8 +27,7 @@ void readShaderCodeFromFile(const char * vertexShaderPath, const char * fragment
   {
     utils::print("ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ");
   }
-  vShaderCode = vertexSource.c_str();
-  fShaderCode = fragmentSource.c_str();
+  return std::make_pair(vertexSource.c_str(), fragmentSource.c_str());
 }
 
 GLuint createShader(GLenum shaderType, const char* source)
@@ -56,6 +43,7 @@ GLuint createShader(GLenum shaderType, const char* source)
   {
     glGetShaderInfoLog(shaderId, sizeof(infoLog), NULL, infoLog);
     utils::print(infoLog);
+    utils::print(source);
   }
   return shaderId;
 }
@@ -80,6 +68,15 @@ GLuint createProgram(const char* vertexShaderSource, const char* fragmentShaderS
   glDeleteShader(vertexShader);
   glDeleteShader(fragmentShader);
   return program;
+}
+
+Shader::Shader(const char * vertexShaderPath, const char * fragmentShaderPath)
+{
+  // read shader source code from file
+  std::pair<std::string, std::string> shaderCodes = readShaderCodeFromFile(vertexShaderPath, fragmentShaderPath);
+
+  // create shaders
+  ID = createProgram(shaderCodes.first.c_str(), shaderCodes.second.c_str());
 }
 
 void Shader::use()
