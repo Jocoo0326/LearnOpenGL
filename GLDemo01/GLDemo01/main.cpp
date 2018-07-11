@@ -8,6 +8,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "Camera.h"
 
 void frame_buffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -15,20 +16,77 @@ void frame_buffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 static float ratio;
+#define KEY_PRESSED(window, key) glfwGetKey(window, key) == GLFW_PRESS
+#define CAMERA_SPEED_COEFFICIENT 2.5f
+
+// camera
+glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+bool firstMouse = true;
+float yaw = -90.0f;
+float pitch = 0.0f;
+float lastX = WIDTH / 2.0f;
+float lastY = HEIGHT / 2.0f;
+float fov = 45.0f;
+Camera camera(cameraPos, cameraUp, yaw, pitch);
+
+// timing
+float lastFrame = 0.0f;
+float deltaTime = 0.0f;
+
+void mouse_callback(GLFWwindow *window, double xpos, double ypos)
+{
+  if (firstMouse)
+  {
+    lastX = (float)xpos;
+    lastY = (float)ypos;
+    firstMouse = false;
+    return;
+  }
+
+  float xoffset = (float)xpos - lastX;
+  float yoffset = lastY - (float)ypos;
+  lastX = (float)xpos;
+  lastY = (float)ypos;
+  camera.ProcessRotation(xoffset, yoffset);
+}
+
+void scroll_callback(GLFWwindow *window, double xoffset, double yoffset)
+{
+  camera.ProcessZoom((float)yoffset);
+}
 
 void processInput(GLFWwindow* window)
 {
-  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+  if (KEY_PRESSED(window, GLFW_KEY_ESCAPE))
   {
     glfwSetWindowShouldClose(window, true);
   }
-  if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+  if (KEY_PRESSED(window, GLFW_KEY_UP))
   {
     ratio = utils::clamp(ratio + 0.0001f, 0.0f, 1.0f);
   }
-  if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+  if (KEY_PRESSED(window, GLFW_KEY_DOWN))
   {
     ratio = utils::clamp(ratio - 0.0001f, 0.0f, 1.0f);
+  }
+  if (KEY_PRESSED(window, GLFW_KEY_W))
+  {
+    camera.ProcessTranslation(FORWARD, deltaTime);
+  }
+  if (KEY_PRESSED(window, GLFW_KEY_S))
+  {
+    camera.ProcessTranslation(BACKWARD, deltaTime);
+  }
+  if (KEY_PRESSED(window, GLFW_KEY_A))
+  {
+    camera.ProcessTranslation(LEFT, deltaTime);
+  }
+  if (KEY_PRESSED(window, GLFW_KEY_D))
+  {
+    camera.ProcessTranslation(RIGHT, deltaTime);
   }
 }
 
@@ -113,6 +171,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
   }
   glfwMakeContextCurrent(window);
   glfwSetFramebufferSizeCallback(window, frame_buffer_size_callback);
+  glfwSetCursorPosCallback(window, mouse_callback);
+  glfwSetScrollCallback(window, scroll_callback);
+
+  // tell GLFW to capture our mouse
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
   // glad: load all OpenGL function pointers 
   // ---------------------------------------
@@ -129,7 +192,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
   // create shader program
   Shader shader("vertex.vs", "fragment.fs");
   // create vao and vbo
-  GLuint vao, vbo, ebo;
+  GLuint vao, vbo;
   glGenVertexArrays(1, &vao);
   glGenBuffers(1, &vbo);
   //glGenBuffers(1, &ebo);
@@ -212,14 +275,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     glm::vec3(-1.3f,  1.0f, -1.5f)
   };
 
-  // set up projection matrix which rarely changes
-  glm::mat4 projection;
-  projection = glm::perspective(glm::radians(45.0f), 1.0f * WIDTH / HEIGHT, 0.1f, 100.f);
-  shader.setMatrix("projection", projection);
-
   // render loop
   while (!glfwWindowShouldClose(window))
   {
+    // pre-frame time logic
+    // --------------------
+    float currentFrame = (float)glfwGetTime();
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+    // process input events
+    // --------------------
     processInput(window);
 
     doRender();
@@ -234,12 +300,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     shader.use();
     shader.setFloat("ratio", ratio);
+
+    // set up projection matrix which rarely changes
+    glm::mat4 projection = camera.GetProjectionMatrix();
+    shader.setMatrix("projection", projection);
+
     // set up view matrix
-    glm::mat4 view;
-    float radius = 10.0f;
-    float camX = sin(glfwGetTime()) * radius;
-    float camZ = cos(glfwGetTime()) * radius;
-    view = glm::lookAt(glm::vec3(camX, 0.0, camZ), glm::vec3(0.0, 0.0, 0.0), glm::vec3(0.0, 1.0, 0.0));
+    glm::mat4 view = camera.GetViewMatrix();
     shader.setMatrix("view", view);
 
     glBindVertexArray(vao);
@@ -250,7 +317,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
       float angle = 20.0f * i;
       if (i % 3 == 0)
       {
-        angle = glfwGetTime() * 25.0f;
+        angle = (float)glfwGetTime() * 25.0f;
       }
       model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
       shader.setMatrix("model", model);
