@@ -29,7 +29,6 @@ float yaw = -90.0f;
 float pitch = 0.0f;
 float lastX = WIDTH / 2.0f;
 float lastY = HEIGHT / 2.0f;
-float fov = 45.0f;
 Camera camera(cameraPos, cameraUp, yaw, pitch);
 
 // timing
@@ -150,9 +149,9 @@ static unsigned int indices[] = {
 };
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-  _In_opt_ HINSTANCE hPrevInstance,
-  _In_ LPWSTR lpCmdLine,
-  _In_ int nCmdShow)
+                      _In_opt_ HINSTANCE hPrevInstance,
+                      _In_ LPWSTR lpCmdLine,
+                      _In_ int nCmdShow)
 {
   // glfw: initialize glfw and configure
   // -----------------------------------

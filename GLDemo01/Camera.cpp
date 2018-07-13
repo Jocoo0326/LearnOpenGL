@@ -24,6 +24,27 @@ Camera::Camera(float posX, float posY, float posZ, float upX, float upY, float u
   updateCameraVectors();
 }
 
+glm::mat4 LookAt(glm::vec3 const & eye, glm::vec3 const & target, glm::vec3 const & up)
+{
+  glm::vec3 f = glm::normalize(target - eye);
+  glm::vec3 r = glm::normalize(glm::cross(f, up));
+  glm::vec3 u = glm::cross(r, f);
+  glm::mat4 lookAt;
+  lookAt[0][0] = r.x;
+  lookAt[1][0] = r.y;
+  lookAt[2][0] = r.z;
+  lookAt[0][1] = u.x;
+  lookAt[1][1] = u.y;
+  lookAt[2][1] = u.z;
+  lookAt[0][2] = -f.x;
+  lookAt[1][2] = -f.y;
+  lookAt[2][2] = -f.z;
+  lookAt[3][0] = -glm::dot(r, eye);
+  lookAt[3][1] = -glm::dot(u, eye);
+  lookAt[3][2] = -glm::dot(-f, eye);
+  return lookAt;
+}
+
 glm::mat4 Camera::GetViewMatrix()
 {
   return glm::lookAt(Position, Position + Front, Up);
