@@ -73,6 +73,10 @@
     <IncludePath>D:\GL_Space\glfw3_lib\include;$(IncludePath)</IncludePath>
     <LibraryPath>D:\GL_Space\glfw3_lib\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>D:\gl_space\glfw3_lib\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\gl_space\glfw3_lib\libs;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -91,6 +95,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -140,8 +147,10 @@
     <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.fs" />
-    <None Include="vertex.vs" />
+    <None Include="cubes.fs" />
+    <None Include="cubes.vs" />
+    <None Include="light.fs" />
+    <None Include="light.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg" />

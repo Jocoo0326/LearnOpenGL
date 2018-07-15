@@ -95,22 +95,22 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                       _In_ LPWSTR lpCmdLine,
                       _In_ int nCmdShow)
 {
-  GLApp app;
-  if (app.InitContext())
+  GLApp *app = GLApp::GetInstance();
+  if (app->InitContext())
   {
     return -1;
   }
 
-  if (app.PrepareWindow())
+  if (app->PrepareWindow())
   {
     return -1;
   }
 
-  Scene scn(&app);
+  Scene scn;
 
-  app.LoadScene(&scn);
+  app->LoadScene(&scn);
 
-  return app.Loop();
+  return app->Loop();
 
   //// glfw window creation
   //GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, "Learn OpenGL", NULL, NULL);

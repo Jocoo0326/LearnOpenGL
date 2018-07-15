@@ -3,7 +3,6 @@
 #define SCENE_H
 
 #include "Camera.h"
-#include "GLApp.h"
 #include "config.h"
 #include <GLFW/glfw3.h>
 #include "Shader.h"
@@ -11,16 +10,15 @@
 class Scene
 {
 public:
-  Scene(GLApp* glapp);
+  Scene();
   void OnStart();
   void OnUpdate(float daltaTime);
   void ProcessInput(GLFWwindow* window, float deltaTime);
   ~Scene();
 
 private:
-  GLApp * app;
   Camera * camera;
-  // Euler angles
+  // Camera Euler angles
   float yaw = -90.0f;
   float pitch = 0.0f;
   // cursor position
@@ -34,10 +32,8 @@ private:
   void mouse_callback(GLFWwindow *window, double xpos, double ypos);
   void scroll_callback(GLFWwindow *window, double xoffset, double yoffset);
 
-  GLuint textureID0;
-  GLuint textureID1;
   Shader* shaderCubes;
-  GLuint vao;
+  GLuint vaoCubes;
   glm::vec3 cubePositions[10] = {
     glm::vec3(0.0f,  0.0f,  0.0f),
     glm::vec3(2.0f,  5.0f, -15.0f),
@@ -50,6 +46,9 @@ private:
     glm::vec3(1.5f,  0.2f, -1.5f),
     glm::vec3(-1.3f,  1.0f, -1.5f)
   };
+  glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+  GLuint vaoLight;
+  Shader* shaderLight;
 };
 
 #endif // !SCENE_H

@@ -64,10 +64,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.fs">
+    <None Include="cubes.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="vertex.vs">
+    <None Include="cubes.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="light.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="light.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
