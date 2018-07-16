@@ -32,47 +32,48 @@ void Scene::OnStart()
   glEnable(GL_DEPTH_TEST);
 
   float verticesFirst[] = {
-    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-    0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+    // positions          // normals           // texture coords
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
+    0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
 
-    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-    0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
-    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
+    0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
+    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
+    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
 
-    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+    -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
 
-    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-    0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-    0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+    0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+    0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
 
-    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-    0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
+    0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+    -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
+    -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
 
-    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
+    0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
+    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+    -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
+    -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
   };
 
   unsigned int indices[] = {
@@ -92,16 +93,26 @@ void Scene::OnStart()
   // bind vao first
   glBindVertexArray(vaoCubes);
   // configure vertex attributes pointer
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (void*)0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)0);
   glEnableVertexAttribArray(0);
-  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (void*)(3 * sizeof(GL_FLOAT)));
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(3 * sizeof(GL_FLOAT)));
   glEnableVertexAttribArray(1);
+  glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)(6 * sizeof(GL_FLOAT)));
+  glEnableVertexAttribArray(2);
 
   glGenVertexArrays(1, &vaoLight);
   glBindVertexArray(vaoLight);
   glBindBuffer(GL_ARRAY_BUFFER, vbo);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GL_FLOAT), (void*)0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GL_FLOAT), (void*)0);
   glEnableVertexAttribArray(0);
+
+  diffuseMap = utils::loadTexture("container2.png");
+  shaderCubes->use();
+  shaderCubes->setInt("material.diffuse", 0);
+
+  specularMap = utils::loadTexture("container2_specular.png");
+  shaderCubes->use();
+  shaderCubes->setInt("material.specular", 1);
 }
 
 void Scene::OnUpdate(float daltaTime)
@@ -115,9 +126,9 @@ void Scene::OnUpdate(float daltaTime)
   shaderLight->setMatrix("projection", camera->GetProjectionMatrix());
   shaderLight->setMatrix("view", camera->GetViewMatrix());
   glm::mat4 model;
-  model = glm::scale(model, glm::vec3(0.2f));
-  lightPos.x = 1.0f + sin(glfwGetTime()) * 2.0f;
-  lightPos.y = 0.5f + sin(glfwGetTime() / 2) * 1.0f;
+  model = glm::scale(model, glm::vec3(0.1f));
+  //lightPos.x = 1.0f + sin((float)glfwGetTime()) * 2.0f;
+  //lightPos.y = 0.5f + sin((float)glfwGetTime() / 2) * 1.0f;
   model = glm::translate(model, lightPos);
   shaderLight->setMatrix("model", model);
   glBindVertexArray(vaoLight);
@@ -125,16 +136,28 @@ void Scene::OnUpdate(float daltaTime)
 
   // cubes
   shaderCubes->use();
-  shaderCubes->setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-  shaderCubes->setVec3("lightColor", 1.0f, 0.5f, 1.0f);
-  shaderCubes->setVec3("lightPos", lightPos);
-  shaderCubes->setVec3("viewPos", camera->Position);
-  shaderCubes->setFloat("ratio", ratio);
+  glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
+  //lightColor.x = sin(glfwGetTime() * 2.0f);
+  //lightColor.y = sin(glfwGetTime() * 0.7f);
+  //lightColor.z = sin(glfwGetTime() * 1.3f);
+  glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
+  glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
+  shaderCubes->setVec3("light.ambient", ambientColor);
+  shaderCubes->setVec3("light.diffuse", diffuseColor);
+  shaderCubes->setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setVec3("light.position", lightPos);
+  shaderCubes->setFloat("material.shininess", 64.0f);
   shaderCubes->setMatrix("projection", camera->GetProjectionMatrix());
   shaderCubes->setMatrix("view", camera->GetViewMatrix());
   model = glm::mat4();
-  model = glm::translate(model, cubePositions[9]);
+  model = glm::translate(model, glm::vec3(-2.0f, 0.2f, 0.5f));
   shaderCubes->setMatrix("model", model);
+
+  glActiveTexture(GL_TEXTURE0);
+  glBindTexture(GL_TEXTURE_2D, diffuseMap);
+  glActiveTexture(GL_TEXTURE1);
+  glBindTexture(GL_TEXTURE_2D, specularMap);
+
   glBindVertexArray(vaoCubes);
   glDrawArrays(GL_TRIANGLES, 0, 36);
 }
@@ -171,14 +194,6 @@ void Scene::ProcessInput(GLFWwindow* window, float deltaTime)
   if (KEY_PRESSED(window, GLFW_KEY_ESCAPE))
   {
     glfwSetWindowShouldClose(window, true);
-  }
-  if (KEY_PRESSED(window, GLFW_KEY_UP))
-  {
-    ratio = utils::clamp(ratio + 0.0001f, 0.0f, 1.0f);
-  }
-  if (KEY_PRESSED(window, GLFW_KEY_DOWN))
-  {
-    ratio = utils::clamp(ratio - 0.0001f, 0.0f, 1.0f);
   }
   if (KEY_PRESSED(window, GLFW_KEY_W))
   {

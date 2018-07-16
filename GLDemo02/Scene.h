@@ -49,6 +49,8 @@ private:
   glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
   GLuint vaoLight;
   Shader* shaderLight;
+  unsigned int diffuseMap;
+  unsigned int specularMap;
 };
 
 #endif // !SCENE_H
