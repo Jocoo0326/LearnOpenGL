@@ -47,6 +47,12 @@ private:
     glm::vec3(-1.3f,  1.0f, -1.5f)
   };
   glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+  glm::vec3 pointLightPositions[4] = {
+    glm::vec3(0.7f,  0.2f,  2.0f),
+    glm::vec3(2.3f, -3.3f, -4.0f),
+    glm::vec3(-4.0f,  2.0f, -12.0f),
+    glm::vec3(0.0f,  0.0f, -3.0f)
+  };
   GLuint vaoLight;
   Shader* shaderLight;
   unsigned int diffuseMap;

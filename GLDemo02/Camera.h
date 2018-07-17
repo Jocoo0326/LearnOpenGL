@@ -31,7 +31,7 @@ enum Camera_Projection {
 class Camera
 {
 public:
-  // Cameta attributes
+  // Camera attributes
   glm::vec3 Position;
   glm::vec3 Front;
   glm::vec3 Up;

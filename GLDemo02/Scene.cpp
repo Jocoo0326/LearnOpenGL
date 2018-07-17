@@ -34,16 +34,16 @@ void Scene::OnStart()
   float verticesFirst[] = {
     // positions          // normals           // texture coords
     -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-    0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
     -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
     -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
 
     -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-    0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
     -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 1.0f,
     -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
 
@@ -54,24 +54,24 @@ void Scene::OnStart()
     -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
     -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
 
-    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-    0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-    0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-    0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-    0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+     0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
 
     -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-    0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-    0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+     0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
+     0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
     -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
     -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
 
     -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-    0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-    0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+     0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
+     0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
     -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
     -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
   };
@@ -118,7 +118,7 @@ void Scene::OnStart()
 void Scene::OnUpdate(float daltaTime)
 {
   // clear screen
-  glClearColor(.2f, .3f, .3f, 1.f);
+  glClearColor(.1f, .1f, .1f, 1.f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // light
@@ -126,32 +126,74 @@ void Scene::OnUpdate(float daltaTime)
   shaderLight->setMatrix("projection", camera->GetProjectionMatrix());
   shaderLight->setMatrix("view", camera->GetViewMatrix());
   glm::mat4 model;
-  model = glm::scale(model, glm::vec3(0.1f));
   //lightPos.x = 1.0f + sin((float)glfwGetTime()) * 2.0f;
   //lightPos.y = 0.5f + sin((float)glfwGetTime() / 2) * 1.0f;
-  model = glm::translate(model, lightPos);
-  shaderLight->setMatrix("model", model);
   glBindVertexArray(vaoLight);
-  glDrawArrays(GL_TRIANGLES, 0, 36);
+  for (int i = 0; i < 4; i++)
+  {
+    model = glm::mat4();
+    model = glm::translate(model, pointLightPositions[i]);
+    model = glm::scale(model, glm::vec3(0.2f));
+    shaderLight->setMatrix("model", model);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+  }
 
   // cubes
   shaderCubes->use();
-  glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
-  //lightColor.x = sin(glfwGetTime() * 2.0f);
-  //lightColor.y = sin(glfwGetTime() * 0.7f);
-  //lightColor.z = sin(glfwGetTime() * 1.3f);
-  glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
-  glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
-  shaderCubes->setVec3("light.ambient", ambientColor);
-  shaderCubes->setVec3("light.diffuse", diffuseColor);
-  shaderCubes->setVec3("light.specular", 1.0f, 1.0f, 1.0f);
-  shaderCubes->setVec3("light.position", lightPos);
+  glm::mat4 p = camera->GetProjectionMatrix();
+  glm::mat4 v = camera->GetViewMatrix();
+  // directional light
+  shaderCubes->setVec3("dirLight.direction", -0.2f, -1.0f, -0.3f);
+  shaderCubes->setVec3("dirLight.ambient", 0.05f, 0.05f, 0.05f);
+  shaderCubes->setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
+  shaderCubes->setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
+  // point light 1
+  shaderCubes->setVec3("pointLight[0].position", glm::vec3(v * glm::vec4(pointLightPositions[0], 1.0f)));
+  shaderCubes->setVec3("pointLight[0].ambient", 0.05f, 0.05f, 0.05f);
+  shaderCubes->setVec3("pointLight[0].diffuse", 0.8f, 0.8f, 0.8f);
+  shaderCubes->setVec3("pointLight[0].specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setFloat("pointLight[0].constant", 1.0f);
+  shaderCubes->setFloat("pointLight[0].linear", 0.09f);
+  shaderCubes->setFloat("pointLight[0].quadratic", 0.032f);
+  // point light 2
+  shaderCubes->setVec3("pointLight[1].position", glm::vec3(v * glm::vec4(pointLightPositions[1], 1.0f)));
+  shaderCubes->setVec3("pointLight[1].ambient", 0.05f, 0.05f, 0.05f);
+  shaderCubes->setVec3("pointLight[1].diffuse", 0.8f, 0.8f, 0.8f);
+  shaderCubes->setVec3("pointLight[1].specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setFloat("pointLight[1].constant", 1.0f);
+  shaderCubes->setFloat("pointLight[1].linear", 0.09f);
+  shaderCubes->setFloat("pointLight[1].quadratic", 0.032f);
+  // point light 3
+  shaderCubes->setVec3("pointLight[2].position", glm::vec3(v * glm::vec4(pointLightPositions[2], 1.0f)));
+  shaderCubes->setVec3("pointLight[2].ambient", 0.05f, 0.05f, 0.05f);
+  shaderCubes->setVec3("pointLight[2].diffuse", 0.8f, 0.8f, 0.8f);
+  shaderCubes->setVec3("pointLight[2].specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setFloat("pointLight[2].constant", 1.0f);
+  shaderCubes->setFloat("pointLight[2].linear", 0.09f);
+  shaderCubes->setFloat("pointLight[2].quadratic", 0.032f);
+  // point light 4
+  shaderCubes->setVec3("pointLight[3].position", glm::vec3(v * glm::vec4(pointLightPositions[3], 1.0f)));
+  shaderCubes->setVec3("pointLight[3].ambient", 0.05f, 0.05f, 0.05f);
+  shaderCubes->setVec3("pointLight[3].diffuse", 0.8f, 0.8f, 0.8f);
+  shaderCubes->setVec3("pointLight[3].specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setFloat("pointLight[3].constant", 1.0f);
+  shaderCubes->setFloat("pointLight[3].linear", 0.09f);
+  shaderCubes->setFloat("pointLight[3].quadratic", 0.032f);
+  // spot light
+  shaderCubes->setVec3("spotLight.position", glm::vec3(v * glm::vec4(camera->Position, 1.0f)));
+  shaderCubes->setVec3("spotLight.direction", glm::vec3(v * glm::vec4(camera->Front, 0.0f)));
+  shaderCubes->setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+  shaderCubes->setVec3("spotLight.diffuse", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setVec3("spotLight.specular", 1.0f, 1.0f, 1.0f);
+  shaderCubes->setFloat("spotLight.constant", 1.0f);
+  shaderCubes->setFloat("spotLight.linear", 0.09f);
+  shaderCubes->setFloat("spotLight.quadratic", 0.032f);
+  shaderCubes->setFloat("spotLight.cutOff", glm::cos(glm::radians(12.5f)));
+  shaderCubes->setFloat("spotLight.outerCutOff", glm::cos(glm::radians(15.0f)));
+
   shaderCubes->setFloat("material.shininess", 64.0f);
-  shaderCubes->setMatrix("projection", camera->GetProjectionMatrix());
-  shaderCubes->setMatrix("view", camera->GetViewMatrix());
-  model = glm::mat4();
-  model = glm::translate(model, glm::vec3(-2.0f, 0.2f, 0.5f));
-  shaderCubes->setMatrix("model", model);
+  shaderCubes->setMatrix("projection", p);
+  shaderCubes->setMatrix("view", v);
 
   glActiveTexture(GL_TEXTURE0);
   glBindTexture(GL_TEXTURE_2D, diffuseMap);
@@ -159,7 +201,15 @@ void Scene::OnUpdate(float daltaTime)
   glBindTexture(GL_TEXTURE_2D, specularMap);
 
   glBindVertexArray(vaoCubes);
-  glDrawArrays(GL_TRIANGLES, 0, 36);
+  for (int i = 0; i < 10; i++)
+  {
+    model = glm::mat4();
+    model = glm::translate(model, cubePositions[i]);
+    float angles = 20.0f * i;
+    model = glm::rotate(model, glm::radians(angles * (float)glfwGetTime()), glm::vec3(1.0f, 0.3f, 0.5f));
+    shaderCubes->setMatrix("model", model);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+  }
 }
 
 void Scene::frame_buffer_size_callback(GLFWwindow* window, int width, int height)
